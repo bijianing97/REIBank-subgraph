@@ -1,0 +1,27 @@
+specVersion: 0.0.2
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Bank
+    network: reidev
+    source:
+      address: "0xf59072756d717D140ea9EF27fc2A3cC4BB317D62"
+      abi: Bank
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - Account
+      abis:
+        - name: Bank
+          file: ./abis/Bank.json
+      eventHandlers:
+        - event: Deposit(indexed address,indexed uint256)
+          handler: handleDeposit
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+        - event: Withdraw(indexed address,indexed uint256)
+          handler: handleWithdraw
+      file: ./src/Bank.ts

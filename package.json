@@ -1,0 +1,40 @@
+{
+  "name": "reibank-subgraph",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx hardhat compile",
+    "deploy:reidev": "npx hardhat --network reidev deploy",
+    "deploy:reitest": "npx hardhat --network reitest deploy",
+    "graph-build": "graphe build",
+    "codegen": "graph codegen --output-dir src/types/",
+    "create-local": "graph create --node http://localhost:8020/ bank",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 bank"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bijianing97/REIBank-subgraph.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bijianing97/REIBank-subgraph/issues"
+  },
+  "homepage": "https://github.com/bijianing97/REIBank-subgraph#readme",
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.4",
+    "@nomiclabs/hardhat-truffle5": "^2.0.3",
+    "@nomiclabs/hardhat-waffle": "^2.0.2",
+    "chai": "^4.3.6",
+    "ethereum-waffle": "^3.4.0",
+    "ethers": "^5.5.4",
+    "hardhat": "^2.8.3",
+    "hardhat-deploy": "^0.10.5",
+    "hardhat-deploy-ethers": "^0.3.0-beta.13",
+    "prettier": "^2.5.1"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-ts": "^0.24.1"
+  }
+}
